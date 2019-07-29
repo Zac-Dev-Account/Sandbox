@@ -1,9 +1,10 @@
-#include "test.h"
+#include <iostream>
+#include "ring_test.h"
 
-using namespace test;
 int main(int argc, char const *argv[])
 {
-    /* code */
-    Test enumTest = Test::RESULT;
+    //Remember to clear out build files each time otherwise cmake will not rebuild correctly
+
+    ring_test();
     return 0;
 }
