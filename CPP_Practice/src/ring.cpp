@@ -17,13 +17,19 @@ void ring<T>::iterator::print() {
 }
 
 //Not entirely sure why this is needed, but i couldn'get it to link or build without it
-void tempFunction () {
-    ring<int> ring_temp;
-    ring<int>::iterator it_temp;
-    it_temp.print();
+template class ring<int>;
+template class ring<std::string>;
 
-    ring<std::string> ring_temp2;
-    ring<std::string>::iterator it_temp2;
-    it_temp2.print();
-}
+//	
+// Instead of creating temporary function a cleaner way is to use template class definition as below.
+
+// Instead of =>
+// void TemporaryFunction ()
+// {
+// TestTemp<int> TempObj;
+// }
+
+
+// Use =>
+// template class TestTemp<int>;
 
