@@ -1,0 +1,28 @@
+boost libraries for implementing various patterns
+Solid design principles
+Creational, Structural, Behavioural
+
+Creation:
+Builder, Factories, Prototype, Singletons
+Structural:
+Adapter
+Bridge
+Composite
+Decorator
+Facade
+Flyweight
+Proxy
+
+Behavioural:
+Chain of responsibility
+Command
+Interpreter
+Iterator
+Mediator
+Memento
+Observer
+State
+Strategy
+Template
+Visitor
+
