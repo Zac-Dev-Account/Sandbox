@@ -1,7 +1,9 @@
 #include <iostream>
+//#include "deleg_constr.h"
 //#include "initializer_tests.h"
 //#include "ring_test.h"
-#include "lambda_tests.h"
+//#include "lambda_tests.h"
+#include "forwarding.h"
 
 int main(int argc, char const *argv[])
 {
@@ -9,7 +11,8 @@ int main(int argc, char const *argv[])
 
     //ring_test();
     //init_test();
-    init_lambda();
-    
+    //init_lambda();
+    //init_deleg();
+    init_forwarding();
     return 0;
 }
