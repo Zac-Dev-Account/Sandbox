@@ -2,7 +2,7 @@
 #define BITMAPINFOHEADER_H_
 
 #include <cstdint>
-#pragma pack(2)
+#pragma pack(push, 2)
 
 //best for portability to use ints with there required bitSize, guaranteed to be the right number of bits
 //pragma pack to remove padding from our struct
@@ -30,5 +30,7 @@ namespace bitTest{
     };
 
 }
+
+#pragma pack(pop)
 
 #endif
