@@ -9,7 +9,8 @@
 //Test modules
 #include "liskov.h"
 #include "openclose.h"
-
+#include "dependencyInversion.h"
+#include "builders.h"
 
 struct Journal {
     std::string title;
@@ -63,7 +64,8 @@ int main(int argc, char const *argv[])
     PersistenceManager::save(journal, "diary.txt");
 
     openclose();
-
     liskov_substitution();
+    dependency_inversion();
+    builder_example();
     return 0;
 }
