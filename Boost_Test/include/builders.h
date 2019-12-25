@@ -116,3 +116,77 @@ int builder_example() {
     
     return 0;
 }
+
+/*
+Groovy Style
+Builder
+
+Uniform initialisation syntax
+define a structure called a tag
+*/
+
+struct Tag {
+
+    std::string name, text;
+    std::vector<Tag> children;
+    std::vector< std::pair<std::string, std::string> > attributes;
+
+    //print all of the children and content correctly
+    friend std::ostream& operator << (std::ostream& os, const Tag& tag) {
+        os << "<" << tag.name;
+
+        for (const auto& att : tag.attributes) {
+            os << " " << att.first << "=\"" << att.second << "\"";
+        }
+
+        if (tag.children.size() == 0 && tag.text.length() == 0) {
+            os << "/>" << std::endl;
+        }
+
+        else {
+            os << ">" << std::endl;
+
+            if(tag.text.length()) {
+                os << tag.text << std::endl;
+            }
+            //should recursively reuse this code block as << is overriden for a Tag object
+            for (const auto& child : tag.children) {
+                os << child;
+            }
+            os << "</" << tag.name << ">" << std::endl;
+        }
+        return os;
+    }
+    protected:
+        Tag(const std::string& name, const std::string& text) : name(name), text(text) {}
+        Tag(const std::string& name, const std::vector<Tag>& children) : name(name), children(children) {}
+};
+
+//Paragraph Tag which inherits from Base class Tag
+struct P : Tag {
+    //always send "P" as a super call to parent constructor
+    P(const std::string& text) : Tag("P", text) {};
+    P(const std::initializer_list<Tag> children ) : Tag("p", children) {};
+
+};
+
+//Image tag. URL of image you want to show
+//Unusual domain specific language, to construct html
+struct IMG : Tag {
+    explicit IMG(const std::string& url) : Tag("img", "") {
+        attributes.emplace_back(std::make_pair("src", url));
+    }
+};
+
+int groovy_builder() {
+    /*
+    sudo domain specific language
+    define different constructors on these elements
+    */
+    
+    std::cout << P{
+        IMG{ "http://pokemon.com/pikachu.png"}
+    } << std::endl;    
+
+    return 0;
+}

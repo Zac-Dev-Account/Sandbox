@@ -67,5 +67,6 @@ int main(int argc, char const *argv[])
     liskov_substitution();
     dependency_inversion();
     builder_example();
+    groovy_builder();
     return 0;
 }
