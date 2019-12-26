@@ -190,3 +190,7 @@ int groovy_builder() {
 
     return 0;
 }
+
+//Separate component, purpose in life to build up one particular object
+//return via a static function / getter from the component that you are actually trying to build for example
+//return *this to make it a fluent builder from your various builder methods
